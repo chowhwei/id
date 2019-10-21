@@ -28,12 +28,6 @@
     ]
   },
   "autoload-dev": {
-    "classmap": [
-      "tests"
-    ],
-    "psr-4": {
-      "Chowhwei\\Id\\": "tests/"
-    }
   },
   "minimum-stability": "stable"
 }

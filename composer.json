@@ -1,0 +1,49 @@
+{
+  "name": "chowhwei/id",
+  "type": "package",
+  "description": "Laravel 6 Id Package",
+  "keywords": ["chowhwei", "id"],
+  "homepage": "https://github.com/chowhwei/id",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "chowhwei",
+      "email": "chowhwei@gmail.com",
+      "homepage": "https://github.com/chowhwei",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "ext-gd": "*",
+    "illuminate/config": "~5.0|^6.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Chowhwei\\Id\\": "src/"
+    },
+    "files": [
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests"
+    ],
+    "psr-4": {
+      "Chowhwei\\Id\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Chowhwei\\Id\\IdServiceProvider"
+      ],
+      "aliases": {
+        "Id": "Chowhwei\\Id\\Facades\\Id"
+      }
+    }
+  }
+}

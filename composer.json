@@ -35,15 +35,5 @@
       "Chowhwei\\Id\\": "tests/"
     }
   },
-  "minimum-stability": "stable",
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Chowhwei\\Id\\IdServiceProvider"
-      ],
-      "aliases": {
-        "Id": "Chowhwei\\Id\\Facades\\Id"
-      }
-    }
-  }
+  "minimum-stability": "stable"
 }

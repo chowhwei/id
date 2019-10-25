@@ -2,9 +2,11 @@
 
 namespace Chowhwei\Id;
 
-class KeyId
+use Chowhwei\Id\Contracts\KeyNum as KeyNumContract;
+
+class KeyNum implements KeyNumContract
 {
-    public function get_key($id)
+    public function getKey($id): string
     {
         $res = $id;
         $sKey = '';
@@ -21,12 +23,7 @@ class KeyId
         return $sKey;
     }
 
-    /**
-     * 根据key反算id
-     * @param $key
-     * @return int
-     */
-    public function get_id($key)
+    public function getId($key): int
     {
         $vv = 0;
         for ($i = 0; $i < strlen($key); $i++) {

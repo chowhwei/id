@@ -2,48 +2,36 @@
 
 namespace Chowhwei\Id;
 
-use Illuminate\Config\Repository as Config;
 use Exception;
+use Chowhwei\Id\Contracts\CrcNum as CrcNumContract;
 
-class CrcId
+class CrcNum implements CrcNumContract
 {
     protected $crc_key = '';
 
     /**
      * CrcId constructor.
-     * @param Config $config
+     * @param string $crc_key
      * @throws Exception
      */
-    public function __construct(Config $config)
+    public function __construct(string $crc_key = '')
     {
-        if(!$config->has('id.crc_key'))
-        {
-            throw new Exception('crc_key undefined');
-        }
-
-        $this->crc_key = $config->get('id.crc_key');
+        $this->crc_key = $crc_key;
     }
 
     /**
-     * 根据流水号获得带自校验的码
-     * a a a c x r y d z CRC32取三位(crd)
      * @param int $id
      * @return int
      */
-    function get_crc_id($id)
+    public function getCrcId(int $id): int
     {
         return $id * 1000 + intval(crc32($id . $this->crc_key)) % 1000;
     }
 
-    /**
-     * 根据自校验码获得原始编号，失败为0
-     * @param int $id
-     * @return int
-     */
-    function get_orig_id($id)
+    public function getOrigId($id): int
     {
         $ori_id = ($id - $id % 1000) / 1000;
-        $new_id = $this->get_crc_id($ori_id);
+        $new_id = $this->getCrcId($ori_id);
         if ($new_id != $id) {
             return 0;
         }
@@ -51,13 +39,7 @@ class CrcId
         return $ori_id;
     }
 
-    /**
-     * 获得混合的自校验码
-     * @param int $id1
-     * @param int $id2
-     * @return int
-     */
-    function get_mixed_crc_id($id1, $id2)
+    public function getMixedCrcId(int $id1, int $id2): int
     {
         $id = 0;
         $i = 0;
@@ -74,17 +56,12 @@ class CrcId
             $i++;
         }
 
-        return $this->get_crc_id($id);
+        return $this->getCrcId($id);
     }
 
-    /**
-     * 根据混合的自校验码获得原始编号
-     * @param int $id
-     * @return int[]
-     */
-    function get_mixed_orig_id($id)
+    public function getMixedOrigId(int $id): array
     {
-        $id = $this->get_orig_id($id);
+        $id = $this->getOrigId($id);
         if ($id == 0) {
             return null;
         }

@@ -1,3 +1,6 @@
+v1.0.4
+test git tag
+
 v1.0.3
 去除 illuminate/support 依赖
 

@@ -1,3 +1,9 @@
+v1.0.2
+添加config/id.php
+
+v1.0.1
+添加changelog.txt
+
 v1.0.0
 测试发布和更新
 

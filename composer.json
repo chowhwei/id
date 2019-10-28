@@ -29,6 +29,5 @@
     ]
   },
   "autoload-dev": {
-  },
-  "minimum-stability": "stable"
+  }
 }

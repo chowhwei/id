@@ -1,9 +1,9 @@
 {
   "name": "chowhwei/id",
   "type": "package",
-  "description": "Laravel 6 Id Package",
+  "description": "Id Package",
   "keywords": ["chowhwei", "id"],
-  "homepage": "https://github.com/chowhwei/id",
+  "homepage": "https://github.com/chowhwei",
   "license": "MIT",
   "authors": [
     {
@@ -16,7 +16,7 @@
   "require": {
     "php": "^7.2",
     "ext-gd": "*",
-    "illuminate/config": "^v6.0"
+    "illuminate/config": "^6.0"
   },
   "require-dev": {
   },
@@ -27,6 +27,5 @@
     "files": [
     ]
   },
-  "autoload-dev": {
-  }
+  "minimum-stability": "stable"
 }

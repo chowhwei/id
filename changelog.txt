@@ -1,3 +1,6 @@
+v1.0.6
+remove CrcId KeyId support
+
 v1.0.5
 remove CrcId KeyId support
 

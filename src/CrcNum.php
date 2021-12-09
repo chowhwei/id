@@ -25,10 +25,10 @@ class CrcNum implements CrcNumContract
      */
     public function getCrcId(int $id): int
     {
-        return $id * 1000 + intval(crc32($id . $this->crc_key)) % 1000;
+        return $id * 1000 + crc32($id . $this->crc_key) % 1000;
     }
 
-    public function getOrigId($id): int
+    public function getOrigId(int $id): int
     {
         $ori_id = ($id - $id % 1000) / 1000;
         $new_id = $this->getCrcId($ori_id);
@@ -63,7 +63,7 @@ class CrcNum implements CrcNumContract
     {
         $id = $this->getOrigId($id);
         if ($id == 0) {
-            return null;
+            return [0, 0];
         }
         $id1 = 0;
         $id2 = 0;

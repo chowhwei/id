@@ -6,7 +6,7 @@ use Chowhwei\Id\Contracts\KeyNum as KeyNumContract;
 
 class KeyNum implements KeyNumContract
 {
-    public function getKey($id): string
+    public function getKey(int $id): string
     {
         $res = $id;
         $sKey = '';
@@ -23,7 +23,7 @@ class KeyNum implements KeyNumContract
         return $sKey;
     }
 
-    public function getId($key): int
+    public function getId(string $key): int
     {
         $vv = 0;
         for ($i = 0; $i < strlen($key); $i++) {
